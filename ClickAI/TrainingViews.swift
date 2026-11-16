@@ -32,11 +32,9 @@ struct TrainingView: View {
     private var title: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("ПЕРСОНАЛЬНЫЙ ПЛАН")
-                .font(.system(size: 11, weight: .bold, design: .rounded))
-                .tracking(1.2)
-                .foregroundStyle(CFColor.accent)
+                .cfEyebrow()
             Text("Тренировки")
-                .font(.system(size: 32, weight: .bold, design: .rounded))
+                .cfDisplayTitle()
             Text("Нагрузка адаптируется под восстановление")
                 .font(.system(size: 13, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
@@ -50,7 +48,7 @@ struct TrainingView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
                         Text("ЭТА НЕДЕЛЯ")
-                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .font(.system(size: 11, weight: .bold, design: .rounded))
                             .tracking(0.8)
                             .foregroundStyle(CFColor.secondary)
                         Text("\(store.current.completedWorkouts) из 4 тренировок")
@@ -75,7 +73,7 @@ struct TrainingView: View {
                                     }
                                 }
                             Text(["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"][index])
-                                .font(.system(size: 9, weight: .medium))
+                                .font(.system(size: 11, weight: .medium))
                                 .foregroundStyle(CFColor.secondary)
                         }
                         .frame(maxWidth: .infinity)
@@ -152,7 +150,7 @@ struct TrainingView: View {
                                 .foregroundStyle(CFColor.secondary)
                                 .lineLimit(1)
                             Text("\(program.duration) мин · \(program.level)")
-                                .font(.system(size: 10, weight: .semibold, design: .rounded))
+                                .font(.system(size: 11, weight: .semibold, design: .rounded))
                                 .foregroundStyle(CFColor.accent)
                         }
                         Spacer()
@@ -229,12 +227,12 @@ struct WorkoutProgramDetail: View {
                                     Text(exercise.name)
                                         .font(.system(size: 15, weight: .semibold))
                                     Text("\(exercise.sets) подхода × \(exercise.reps)")
-                                        .font(.system(size: 11, weight: .medium))
+                                    .font(.system(size: 12, weight: .medium))
                                         .foregroundStyle(CFColor.secondary)
                                 }
                                 Spacer()
                                 Text("\(exercise.rest) сек")
-                                    .font(.system(size: 10, weight: .semibold, design: .rounded))
+                                    .font(.system(size: 11, weight: .semibold, design: .rounded))
                                     .foregroundStyle(CFColor.secondary)
                             }
                             .padding(.vertical, 4)
@@ -263,7 +261,7 @@ struct WorkoutProgramDetail: View {
                 .font(.system(size: 19, weight: .bold, design: .rounded))
                 .foregroundStyle(tint)
             Text(label)
-                .font(.system(size: 9, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
         }
         .frame(maxWidth: .infinity)
@@ -335,7 +333,7 @@ struct WorkoutSessionView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
                         Text("ПРОГРЕСС")
-                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .font(.system(size: 11, weight: .bold, design: .rounded))
                             .tracking(0.8)
                             .foregroundStyle(CFColor.secondary)
                         Text("\(doneSets) / \(totalSets) подходов")
@@ -526,7 +524,7 @@ struct ExerciseDetailView: View {
                 .font(.system(size: 17, weight: .bold, design: .rounded))
                 .foregroundStyle(CFColor.accent)
             Text(label)
-                .font(.system(size: 9, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
         }
         .frame(maxWidth: .infinity)

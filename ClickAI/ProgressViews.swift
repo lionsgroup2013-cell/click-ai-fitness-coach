@@ -41,11 +41,9 @@ struct ProgressViewScreen: View {
     private var title: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("ДИНАМИКА")
-                .font(.system(size: 11, weight: .bold, design: .rounded))
-                .tracking(1.2)
-                .foregroundStyle(CFColor.accent)
+                .cfEyebrow()
             Text("Прогресс")
-                .font(.system(size: 32, weight: .bold, design: .rounded))
+                .cfDisplayTitle()
             Text("Тренды, замеры и выполненные цели")
                 .font(.system(size: 13, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
@@ -79,7 +77,7 @@ struct ProgressViewScreen: View {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("ВЕС")
-                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .font(.system(size: 11, weight: .bold, design: .rounded))
                             .tracking(0.8)
                             .foregroundStyle(CFColor.secondary)
                         Text("\(store.current.currentWeight.formatted(.number.precision(.fractionLength(1)))) кг")
@@ -94,7 +92,7 @@ struct ProgressViewScreen: View {
                     Spacer()
                     VStack(alignment: .trailing, spacing: 4) {
                         Text("ЦЕЛЬ")
-                            .font(.system(size: 9, weight: .bold, design: .rounded))
+                            .font(.system(size: 11, weight: .bold, design: .rounded))
                             .foregroundStyle(CFColor.secondary)
                         Text("\(store.current.targetWeight.formatted(.number.precision(.fractionLength(1)))) кг")
                             .font(.system(size: 17, weight: .bold, design: .rounded))
@@ -238,7 +236,7 @@ struct ProgressViewScreen: View {
             Text(value)
                 .font(.system(size: 16, weight: .bold, design: .rounded))
             Text(label)
-                .font(.system(size: 9, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
         }
     }
@@ -262,7 +260,7 @@ struct ProgressViewScreen: View {
             Text(value)
                 .font(.system(size: 16, weight: .bold, design: .rounded))
             Text(label)
-                .font(.system(size: 9, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
         }
         .frame(maxWidth: .infinity)

@@ -50,6 +50,30 @@ extension View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
     }
+
+    func cfDisplayTitle() -> some View {
+        self
+            .font(.system(size: 34, weight: .black, design: .rounded))
+            .tracking(-1.1)
+            .foregroundStyle(
+                LinearGradient(
+                    colors: [CFColor.text, Color(hex: 0xEAFFDD), CFColor.accent],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+    }
+
+    func cfEyebrow() -> some View {
+        self
+            .font(.system(size: 11, weight: .black, design: .rounded))
+            .tracking(1.4)
+            .foregroundStyle(CFColor.accent)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(CFColor.accent.opacity(0.1))
+            .clipShape(Capsule())
+    }
 }
 
 struct CFCard<Content: View>: View {
@@ -74,7 +98,7 @@ struct SectionHeader: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text(title)
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                .font(.system(size: 21, weight: .black, design: .rounded))
 
             Spacer()
 
@@ -139,11 +163,11 @@ struct MacroBar: View {
         VStack(alignment: .leading, spacing: 7) {
             HStack {
                 Text(title)
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(CFColor.secondary)
                 Spacer()
                 Text("\(Int(value)) / \(Int(target)) г")
-                    .font(.system(size: 11, weight: .semibold, design: .rounded))
+                    .font(.system(size: 12, weight: .semibold, design: .rounded))
                     .foregroundStyle(CFColor.text)
             }
 
@@ -183,7 +207,7 @@ struct CircleProgress: View {
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                     .monospacedDigit()
                 Text(caption)
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.system(size: 11, weight: .medium))
                     .foregroundStyle(CFColor.secondary)
             }
         }

@@ -37,11 +37,9 @@ struct NutritionView: View {
     private var title: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("РАЦИОН НА НЕДЕЛЮ")
-                .font(.system(size: 11, weight: .bold, design: .rounded))
-                .tracking(1.2)
-                .foregroundStyle(CFColor.accent)
+                .cfEyebrow()
             Text("Питание")
-                .font(.system(size: 32, weight: .bold, design: .rounded))
+                .cfDisplayTitle()
             Text("План под вашу цель и тренировки")
                 .font(.system(size: 13, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
@@ -57,7 +55,7 @@ struct NutritionView: View {
                 } label: {
                     VStack(spacing: 6) {
                         Text(day.0)
-                            .font(.system(size: 10, weight: .semibold))
+                            .font(.system(size: 11, weight: .semibold))
                             .foregroundStyle(selectedDay == index ? CFColor.background.opacity(0.7) : CFColor.secondary)
                         Text(day.1)
                             .font(.system(size: 17, weight: .bold, design: .rounded))
@@ -111,7 +109,7 @@ struct NutritionView: View {
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .foregroundStyle(tint)
             Text(title)
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
         }
         .frame(maxWidth: .infinity)
@@ -173,7 +171,7 @@ struct MealRow: View {
             VStack(alignment: .leading, spacing: 7) {
                 HStack {
                     Text(meal.slot.rawValue.uppercased())
-                        .font(.system(size: 9, weight: .bold, design: .rounded))
+                        .font(.system(size: 11, weight: .bold, design: .rounded))
                         .tracking(0.8)
                         .foregroundStyle(CFColor.accent)
                     Spacer()
@@ -293,7 +291,7 @@ struct MealDetailView: View {
                 .font(.system(size: 14, weight: .bold, design: .rounded))
                 .foregroundStyle(tint)
             Text(caption)
-                .font(.system(size: 9, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
         }
         .frame(maxWidth: .infinity)

@@ -23,11 +23,9 @@ struct MoreView: View {
     private var title: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("ЦЕНТР УПРАВЛЕНИЯ")
-                .font(.system(size: 11, weight: .bold, design: .rounded))
-                .tracking(1.2)
-                .foregroundStyle(CFColor.accent)
+                .cfEyebrow()
             Text("Ещё")
-                .font(.system(size: 32, weight: .bold, design: .rounded))
+                .cfDisplayTitle()
             Text("Тренер, покупки, рецепты и настройки")
                 .font(.system(size: 13, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
@@ -61,7 +59,7 @@ struct MoreView: View {
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text(store.current.name)
-                            .font(.system(size: 20, weight: .semibold))
+                            .font(.system(size: 22, weight: .black, design: .rounded))
                         Text("\(store.current.goal.title) · \(store.current.age) лет")
                             .font(.system(size: 12, weight: .medium))
                             .foregroundStyle(CFColor.secondary)
@@ -177,7 +175,7 @@ struct MoreView: View {
                 Text(title)
                     .font(.system(size: 15, weight: .semibold))
                 Text(subtitle)
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.system(size: 11, weight: .medium))
                     .foregroundStyle(CFColor.secondary)
                     .lineLimit(1)
             }
@@ -310,7 +308,7 @@ struct ProductsView: View {
                                 Text(product.0)
                                     .font(.system(size: 16, weight: .semibold))
                                 Text(product.1)
-                                    .font(.system(size: 10, weight: .medium))
+                                    .font(.system(size: 11, weight: .medium))
                                     .foregroundStyle(CFColor.secondary)
                             }
                             Spacer()

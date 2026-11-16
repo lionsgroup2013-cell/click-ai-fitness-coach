@@ -271,7 +271,7 @@ enum DemoData {
 
     static func profile(isMale: Bool) -> UserData {
         let id = isMale ? maleID : femaleID
-        let name = isMale ? "Александр" : "Анна"
+        let name = isMale ? "Гулам" : "Анна"
         let current = isMale ? 82.4 : 64.2
         let target = isMale ? 88.0 : 58.0
         let goal: FitnessGoal = .gain

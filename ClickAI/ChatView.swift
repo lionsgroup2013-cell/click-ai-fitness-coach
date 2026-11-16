@@ -61,7 +61,7 @@ struct ChatView: View {
             Image(systemName: "lock.shield.fill")
                 .foregroundStyle(CFColor.accent)
             Text("Локальный режим. Ответы формируются по данным профиля «\(store.current.name)» без отправки на сервер. Медицинские вопросы требуют консультации специалиста.")
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(CFColor.secondary)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -75,7 +75,7 @@ struct ChatView: View {
             Image(systemName: "cross.case.fill")
             Text("Не заменяет врача")
         }
-        .font(.system(size: 9, weight: .semibold))
+        .font(.system(size: 11, weight: .semibold))
         .foregroundStyle(CFColor.secondary.opacity(0.75))
         .padding(.top, 4)
     }

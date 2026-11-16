@@ -130,7 +130,7 @@ struct HomeView: View {
                     .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(CFColor.secondary)
                 Text(store.current.name)
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .cfDisplayTitle()
             }
             Spacer()
             ProfileSwitcher()
