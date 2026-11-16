@@ -560,7 +560,7 @@ struct SettingsView: View {
             .listRowBackground(CFColor.card)
 
             Section {
-                Text("Версия 0.1.0 · Stage 1\nСервер, Vision и Aggregate подключаются отдельными этапами.")
+                Text("Версия 0.2.0 · Stage 1\nСервер, Vision и Aggregate подключаются отдельными этапами.")
                     .font(.system(size: 11))
                     .foregroundStyle(CFColor.secondary)
             }
