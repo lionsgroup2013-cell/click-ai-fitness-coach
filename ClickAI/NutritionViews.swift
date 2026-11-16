@@ -164,7 +164,7 @@ struct MealRow: View {
 
     var body: some View {
         HStack(spacing: 13) {
-            Image(meal.imageName)
+            Image.cf(meal.imageName)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 92, height: 92)
@@ -211,7 +211,7 @@ struct MealDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Image(meal.imageName)
+                Image.cf(meal.imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(height: 280)

@@ -1,0 +1,6 @@
+version: 1
+bundleID: com.lionsgroup.clickai
+product: ClickAI
+iconPath: Support/AppIcon.png
+infoPath: Support/Info.plist
+

@@ -12,6 +12,18 @@
 
 Для iPhone 18 Pro Max с актуальной iOS рекомендуется первый сценарий.
 
+## Сборка через xtool
+
+[xtool](https://github.com/xtool-org/xtool) — самый близкий к вашему запросу вариант: он собирает SwiftPM-приложение на Windows через WSL, подписывает его Apple ID и устанавливает на подключённый iPhone без Mac.
+
+1. Установите WSL2 и Ubuntu.
+2. Настройте USB-доступ iPhone к WSL через `usbipd-win`.
+3. Установите Swift 6.4, `usbmuxd` и [Xcode.xip](https://developer.apple.com/download/all/?q=Xcode).
+4. Скачайте `xtool.AppImage` из официального GitHub Releases и выполните `xtool setup`.
+5. В корне этого репозитория выполните `xtool dev`.
+
+Для xtool в проекте уже есть `Package.swift` и `xtool.yml`. Для бесплатного Apple ID xtool честно использует семидневную подпись Apple; повторный `xtool dev` её продлевает.
+
 ## Если установлен iOS 27+
 
 Используйте [SideInstaller](https://github.com/FrizzleM/SideInstaller) только с официального сайта проекта.

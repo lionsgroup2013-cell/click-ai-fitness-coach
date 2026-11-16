@@ -248,7 +248,7 @@ struct HomeView: View {
             WorkoutSessionView(program: WorkoutCatalog.plans[0])
         } label: {
             ZStack(alignment: .bottomLeading) {
-                Image("TrainingCover")
+                Image.cf("TrainingCover")
                     .resizable()
                     .scaledToFill()
                     .frame(height: 220)

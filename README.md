@@ -1,6 +1,6 @@
 # CLICK AI Fitness Coach
 
-Нативное SwiftUI-приложение для персонального планирования питания и тренировок. Проект генерируется через XcodeGen и собирается в GitHub Actions без Mac на вашем компьютере.
+Нативное SwiftUI-приложение для персонального планирования питания и тренировок. Основная сборка подготовлена для [xtool](https://github.com/xtool-org/xtool) — кроссплатформенной замены Xcode. Дополнительно проект можно открыть в Xcode или собрать в GitHub Actions.
 
 ## Текущий этап
 
@@ -34,7 +34,41 @@
 - Официальный Apple Developer Program даёт подпись на 365 дней и повышает лимиты, но требует оплаты.
 - Чужие корпоративные сертификаты из Telegram и «магазинов подписей» не используются: их отзывают, а установщик может получить доступ к Apple ID.
 
-## Локальная разработка
+## Сборка через xtool
+
+Проект содержит `Package.swift` и `xtool.yml`, поэтому xtool может собрать, подписать и установить его прямо на подключённый iPhone.
+
+### Требования
+
+- Windows: WSL2, Swift 6.4, usbmuxd и USB-доступ к iPhone.
+- Linux: Swift 6.4, usbmuxd и USB-доступ к iPhone.
+- Бесплатный или платный Apple ID.
+- `Xcode.xip`, который xtool использует для создания iOS Swift SDK.
+
+### Запуск
+
+В Ubuntu/WSL:
+
+```sh
+curl -fL \
+  "https://github.com/xtool-org/xtool/releases/latest/download/xtool-$(uname -m).AppImage" \
+  -o xtool
+chmod +x xtool
+sudo mv xtool /usr/local/bin/xtool
+
+xtool setup
+```
+
+После первичной настройки:
+
+```sh
+cd /mnt/c/Users/User/Documents/Codex/2026-11-17/new-chat/work/click-ai-fitness-coach
+xtool dev
+```
+
+При запросе xtool подпишет приложение вашим Apple ID и установит его на подключённый iPhone. Для бесплатного Apple ID срок сертификата остаётся 7 дней — это ограничение Apple, а не xtool. Повторный `xtool dev` продлевает подпись; платный Apple Developer Program даёт 365 дней.
+
+## Сборка через Xcode
 
 Требуются macOS, Xcode 16+ и XcodeGen.
 

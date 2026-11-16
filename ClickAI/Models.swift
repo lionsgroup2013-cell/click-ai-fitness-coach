@@ -361,25 +361,31 @@ final class AppStore {
 
     init() {
         let fallback = [DemoData.profile(isMale: true), DemoData.profile(isMale: false)]
+        let loadedProfiles: [UserData]
         if
             let data = UserDefaults.standard.data(forKey: storageKey),
             let decoded = try? JSONDecoder().decode([UserData].self, from: data),
             decoded.count >= 2
         {
-            profiles = decoded
+            loadedProfiles = decoded
         } else {
-            profiles = fallback
+            loadedProfiles = fallback
         }
 
+        let loadedSelection: UUID?
         if
             let raw = UserDefaults.standard.string(forKey: selectedKey),
-            let id = UUID(uuidString: raw),
-            profiles.contains(where: { $0.id == id })
+            let id = UUID(uuidString: raw)
         {
-            selectedProfileID = id
+            loadedSelection = id
         } else {
-            selectedProfileID = profiles[0].id
+            loadedSelection = nil
         }
+
+        profiles = loadedProfiles
+        selectedProfileID = loadedProfiles.contains(where: { $0.id == loadedSelection })
+            ? loadedSelection!
+            : loadedProfiles[0].id
     }
 
     var current: UserData {

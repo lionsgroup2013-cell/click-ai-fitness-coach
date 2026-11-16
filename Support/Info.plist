@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>CLICK AI Coach</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.1.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Камера нужна для распознавания продуктов, этикеток и блюд.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Доступ к фото нужен для распознавания еды и сравнения прогресса.</string>
+    <key>NSHealthShareUsageDescription</key>
+    <string>Apple Health нужен для импорта веса, шагов и тренировок с вашего разрешения.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>CLICK может сохранять тренировки и показатели в Apple Health с вашего разрешения.</string>
+    <key>UILaunchScreen</key>
+    <dict>
+        <key>UIColorName</key>
+        <string></string>
+    </dict>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+</dict>
+</plist>

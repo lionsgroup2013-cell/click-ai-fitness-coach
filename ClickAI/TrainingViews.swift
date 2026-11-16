@@ -195,7 +195,7 @@ struct WorkoutProgramDetail: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Image("TrainingCover")
+                Image.cf("TrainingCover")
                     .resizable()
                     .scaledToFill()
                     .frame(height: 250)

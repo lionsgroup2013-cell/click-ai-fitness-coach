@@ -1,5 +1,15 @@
 import SwiftUI
 
+extension Image {
+    static func cf(_ name: String) -> Image {
+        #if XCODE_BUILD
+        Image(name)
+        #else
+        Image(name, bundle: .module)
+        #endif
+    }
+}
+
 enum CFColor {
     static let background = Color(hex: 0x0B0F14)
     static let card = Color(hex: 0x171E27)
