@@ -512,44 +512,45 @@ final class AppStore {
 enum WorkoutCatalog {
     static let plans = [
         WorkoutProgram(
-            id: "upper",
-            title: "Верх тела",
-            subtitle: "Сила • грудь, спина, плечи",
-            duration: 42,
+            id: "street",
+            title: "Улица · турник",
+            subtitle: "Подтягивания · брусья · пресс",
+            duration: 38,
             level: "Средний",
-            calories: 360,
+            calories: 340,
             exercises: [
-                Exercise(name: "Отжимания", muscles: "Грудь · трицепс · плечи", sets: 4, reps: "8–12", rest: 75, instruction: "Держите корпус одной линией, локти под углом около 45°.", icon: "figure.strengthtraining.traditional"),
-                Exercise(name: "Тяга гантелей в наклоне", muscles: "Спина · бицепс", sets: 4, reps: "10", rest: 90, instruction: "Стабилизируйте поясницу, тяните гантели к поясу.", icon: "dumbbell.fill"),
-                Exercise(name: "Жим гантелей стоя", muscles: "Плечи · трицепс", sets: 3, reps: "10–12", rest: 75, instruction: "Не прогибайте поясницу, сохраняйте рёбра вниз.", icon: "figure.strengthtraining.functional"),
-                Exercise(name: "Планка", muscles: "Кор", sets: 3, reps: "40 сек", rest: 45, instruction: "Напрягите ягодицы и пресс, дышите ровно.", icon: "figure.core.training")
-            ]
-        ),
-        WorkoutProgram(
-            id: "legs",
-            title: "Низ тела",
-            subtitle: "Сила • ноги, ягодицы",
-            duration: 48,
-            level: "Средний",
-            calories: 410,
-            exercises: [
-                Exercise(name: "Приседания", muscles: "Квадрицепс · ягодицы", sets: 4, reps: "10–12", rest: 90, instruction: "Колени направляйте по линии стоп, сохраняйте стопы на полу.", icon: "figure.squat"),
-                Exercise(name: "Румынская тяга", muscles: "Задняя поверхность бедра · ягодицы", sets: 4, reps: "10", rest: 90, instruction: "Отводите таз назад, сохраняйте нейтральную спину.", icon: "figure.strengthtraining.traditional"),
-                Exercise(name: "Выпад назад", muscles: "Ягодицы · квадрицепс", sets: 3, reps: "10 на ногу", rest: 70, instruction: "Контролируйте колено передней ноги.", icon: "figure.walk.motion"),
-                Exercise(name: "Ягодичный мост", muscles: "Ягодицы · кор", sets: 3, reps: "15", rest: 60, instruction: "В верхней точке напрягите ягодицы, не переразгибайте поясницу.", icon: "figure.core.training")
+                Exercise(name: "Подтягивания", muscles: "Широчайшие · бицепс", sets: 4, reps: "6–10", rest: 90, instruction: "Начинайте движение с опускания лопаток. Не раскачивайте корпус и используйте резинку, если нужна помощь.", icon: "figure.strengthtraining.traditional"),
+                Exercise(name: "Австралийские подтягивания", muscles: "Спина · бицепс · кор", sets: 3, reps: "10–12", rest: 75, instruction: "Держите корпус прямым, тяните грудь к перекладине и контролируйте опускание.", icon: "figure.rower"),
+                Exercise(name: "Отжимания на брусьях", muscles: "Грудь · трицепс", sets: 3, reps: "8–12", rest: 90, instruction: "Опускайтесь до комфортной глубины без боли в плечах. При необходимости работайте на опоре.", icon: "figure.strengthtraining.functional"),
+                Exercise(name: "Подъём ног в висе", muscles: "Пресс · кор", sets: 3, reps: "10–12", rest: 60, instruction: "Поднимайте колени или прямые ноги без раскачивания. Не тянитесь за счёт импульса.", icon: "figure.core.training")
             ]
         ),
         WorkoutProgram(
             id: "home",
-            title: "Дом без инвентаря",
-            subtitle: "Мобильность • всё тело",
-            duration: 28,
-            level: "Лёгкий",
-            calories: 220,
+            title: "Дом · всё тело",
+            subtitle: "Отжимания · ноги · планка",
+            duration: 30,
+            level: "Базовый",
+            calories: 240,
             exercises: [
-                Exercise(name: "Приседания у стены", muscles: "Ноги · кор", sets: 3, reps: "12", rest: 45, instruction: "Мягко прижимайте спину, дышите спокойно.", icon: "figure.flexibility"),
-                Exercise(name: "Отжимания от опоры", muscles: "Грудь · руки", sets: 3, reps: "10", rest: 45, instruction: "Опускайтесь медленно, корпус держите прямым.", icon: "figure.strengthtraining.functional"),
-                Exercise(name: "Bird-dog", muscles: "Кор · спина", sets: 3, reps: "8 на сторону", rest: 40, instruction: "Не разворачивайте таз, тянитесь рукой и ногой.", icon: "figure.core.training")
+                Exercise(name: "Приседания", muscles: "Ноги · ягодицы", sets: 4, reps: "15", rest: 60, instruction: "Колени направляйте по линии стоп, сохраняйте полную стопу на полу.", icon: "figure.squat"),
+                Exercise(name: "Отжимания от опоры", muscles: "Грудь · трицепс · плечи", sets: 4, reps: "10–15", rest: 60, instruction: "Корпус держите прямым. Чем выше опора, тем легче нагрузка.", icon: "figure.strengthtraining.functional"),
+                Exercise(name: "Выпады назад", muscles: "Ягодицы · квадрицепс", sets: 3, reps: "12 на ногу", rest: 60, instruction: "Контролируйте колено передней ноги и сохраняйте равновесие.", icon: "figure.walk.motion"),
+                Exercise(name: "Планка", muscles: "Пресс · кор", sets: 3, reps: "45 сек", rest: 40, instruction: "Напрягите ягодицы и пресс, дышите ровно, не прогибайте поясницу.", icon: "figure.core.training")
+            ]
+        ),
+        WorkoutProgram(
+            id: "home-legs",
+            title: "Дом · ноги и ягодицы",
+            subtitle: "Приседания · выпады · мост",
+            duration: 35,
+            level: "Средний",
+            calories: 300,
+            exercises: [
+                Exercise(name: "Болгарский присед у опоры", muscles: "Квадрицепс · ягодицы", sets: 3, reps: "10 на ногу", rest: 75, instruction: "Держите равновесие у стены или стула, опускайтесь под контролем.", icon: "figure.squat"),
+                Exercise(name: "Румынская тяга без веса", muscles: "Задняя поверхность бедра · ягодицы", sets: 4, reps: "12", rest: 60, instruction: "Отводите таз назад, сохраняйте спину нейтральной и чувствуйте растяжение под коленом.", icon: "figure.flexibility"),
+                Exercise(name: "Ягодичный мост", muscles: "Ягодицы · кор", sets: 4, reps: "15", rest: 50, instruction: "В верхней точке напрягите ягодицы, рёбра держите опущенными.", icon: "figure.core.training"),
+                Exercise(name: "Подъёмы на носки", muscles: "Икры · стопы", sets: 3, reps: "20", rest: 40, instruction: "Поднимайтесь через большой палец стопы и медленно опускайтесь.", icon: "figure.walk.motion")
             ]
         )
     ]

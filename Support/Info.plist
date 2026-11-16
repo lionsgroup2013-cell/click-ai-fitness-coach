@@ -5,9 +5,9 @@
     <key>CFBundleDisplayName</key>
     <string>CLICK AI Coach</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.1.0</string>
+    <string>0.2.0</string>
     <key>CFBundleVersion</key>
-    <string>1</string>
+    <string>2</string>
     <key>NSCameraUsageDescription</key>
     <string>Камера нужна для распознавания продуктов, этикеток и блюд.</string>
     <key>NSPhotoLibraryUsageDescription</key>

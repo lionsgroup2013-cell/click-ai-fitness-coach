@@ -12,12 +12,12 @@ extension Image {
 
 enum CFColor {
     static let background = Color(hex: 0x0B0F14)
-    static let card = Color(hex: 0x171E27)
-    static let surface = Color(hex: 0x222B36)
+    static let card = Color(hex: 0x1C2633)
+    static let surface = Color(hex: 0x2A3745)
     static let accent = Color(hex: 0xA8FF60)
     static let text = Color.white
     static let secondary = Color(hex: 0xA0AAB8)
-    static let divider = Color(hex: 0x303945)
+    static let divider = Color(hex: 0x3A4757)
     static let warning = Color(hex: 0xFFB45E)
     static let blue = Color(hex: 0x6CB8FF)
 }
@@ -40,12 +40,24 @@ extension View {
             .padding(padding)
             .background(CFColor.card)
             .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(Color.white.opacity(0.055), lineWidth: 1)
+            }
+            .shadow(color: .black.opacity(0.18), radius: 20, y: 10)
     }
 
     func cfScreen() -> some View {
         self
             .foregroundStyle(CFColor.text)
-            .background(CFColor.background.ignoresSafeArea())
+            .background(
+                LinearGradient(
+                    colors: [Color(hex: 0x0E1722), CFColor.background],
+                    startPoint: .topTrailing,
+                    endPoint: .bottomLeading
+                )
+                .ignoresSafeArea()
+            )
             .toolbarBackground(CFColor.background, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)

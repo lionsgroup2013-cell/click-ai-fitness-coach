@@ -9,6 +9,7 @@ struct MoreView: View {
                 title
                 profileCard
                 coachCard
+                shoppingOverview
                 menu
                 privacyCard
             }
@@ -162,6 +163,68 @@ struct MoreView: View {
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
     }
 
+    private var shoppingOverview: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader(title: "Покупки на неделю")
+
+            HStack(spacing: 9) {
+                NavigationLink {
+                    StoresView(initialStore: "Пятёрочка")
+                } label: {
+                    StoreTile(
+                        mark: "5",
+                        title: "Пятёрочка",
+                        subtitle: "Курица · лосось · овощи",
+                        total: "1 188 ₽",
+                        tint: CFColor.accent
+                    )
+                }
+                .buttonStyle(.plain)
+
+                NavigationLink {
+                    StoresView(initialStore: "Дикси")
+                } label: {
+                    StoreTile(
+                        mark: "Д",
+                        title: "Дикси",
+                        subtitle: "Рис · овощи · бюджет",
+                        total: "428 ₽",
+                        tint: CFColor.blue
+                    )
+                }
+                .buttonStyle(.plain)
+            }
+
+            NavigationLink {
+                ProductsView()
+            } label: {
+                HStack(spacing: 11) {
+                    IconTile(systemName: "barcode.viewfinder", tint: CFColor.accent, size: 40)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Мои продукты · БЖУ")
+                            .font(.system(size: 14, weight: .bold, design: .rounded))
+                        Text("Творог 5% · курица · овсянка")
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundStyle(CFColor.secondary)
+                    }
+                    Spacer()
+                    Text("3 продукта")
+                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                        .foregroundStyle(CFColor.accent)
+                }
+                .foregroundStyle(CFColor.text)
+                .padding(12)
+                .background(CFColor.card)
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Color.white.opacity(0.055), lineWidth: 1)
+                }
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
     private var divider: some View {
         Divider()
             .overlay(CFColor.divider)
@@ -201,9 +264,56 @@ struct MoreView: View {
     }
 }
 
+struct StoreTile: View {
+    let mark: String
+    let title: String
+    let subtitle: String
+    let total: String
+    let tint: Color
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(mark)
+                .font(.system(size: 16, weight: .black, design: .rounded))
+                .foregroundStyle(CFColor.background)
+                .frame(width: 36, height: 36)
+                .background(tint)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(title)
+                    .font(.system(size: 15, weight: .black, design: .rounded))
+                Text(subtitle)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(CFColor.secondary)
+                    .lineLimit(2)
+            }
+
+            Spacer(minLength: 0)
+
+            Text(total)
+                .font(.system(size: 15, weight: .black, design: .rounded))
+                .foregroundStyle(tint)
+        }
+        .foregroundStyle(CFColor.text)
+        .frame(maxWidth: .infinity, minHeight: 132, alignment: .leading)
+        .padding(13)
+        .background(CFColor.card)
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(Color.white.opacity(0.055), lineWidth: 1)
+        }
+    }
+}
+
 struct StoresView: View {
     @Environment(AppStore.self) private var store
-    @State private var storeFilter = "Пятёрочка"
+    @State private var storeFilter: String
+
+    init(initialStore: String = "Пятёрочка") {
+        _storeFilter = State(initialValue: initialStore)
+    }
 
     var body: some View {
         ScrollView {

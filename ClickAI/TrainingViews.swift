@@ -91,19 +91,19 @@ struct TrainingView: View {
                 HStack {
                     CFPill(text: "СЛЕДУЮЩАЯ", icon: "bolt.fill")
                     Spacer()
-                    Text("42 МИН")
+                    Text("38 МИН")
                         .font(.system(size: 11, weight: .bold, design: .rounded))
                         .foregroundStyle(CFColor.secondary)
                 }
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Верх тела")
+                    Text("Улица · турник")
                         .font(.system(size: 26, weight: .bold, design: .rounded))
-                    Text("Грудь · спина · плечи")
+                    Text("Турник · брусья · пресс")
                         .font(.system(size: 13, weight: .medium))
                         .foregroundStyle(CFColor.secondary)
                 }
                 HStack {
-                    Label("360 ккал", systemImage: "flame.fill")
+                    Label("340 ккал", systemImage: "flame.fill")
                     Spacer()
                     Label("4 упражнения", systemImage: "figure.strengthtraining.traditional")
                     Spacer()
@@ -138,8 +138,8 @@ struct TrainingView: View {
                 } label: {
                     HStack(spacing: 14) {
                         IconTile(
-                            systemName: program.id == "home" ? "house.fill" : "figure.strengthtraining.traditional",
-                            tint: program.id == "legs" ? CFColor.blue : CFColor.accent,
+                            systemName: program.id == "street" ? "figure.strengthtraining.traditional" : "house.fill",
+                            tint: program.id == "home-legs" ? CFColor.blue : CFColor.accent,
                             size: 48
                         )
                         VStack(alignment: .leading, spacing: 3) {

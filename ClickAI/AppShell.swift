@@ -264,11 +264,11 @@ struct HomeView: View {
                     HStack {
                         CFPill(text: "СЕГОДНЯ", icon: "bolt.fill")
                         Spacer()
-                        CFPill(text: "42 МИН", icon: "clock.fill", tint: CFColor.text)
+                        CFPill(text: "38 МИН", icon: "clock.fill", tint: CFColor.text)
                     }
-                    Text("Верх тела")
+                    Text("Улица · турник")
                         .font(.system(size: 26, weight: .bold, design: .rounded))
-                    Text("Сила • грудь, спина и плечи")
+                    Text("Подтягивания · брусья · пресс")
                         .font(.system(size: 13, weight: .medium))
                         .foregroundStyle(CFColor.secondary)
                 }
