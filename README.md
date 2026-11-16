@@ -68,6 +68,11 @@ xtool dev
 
 При запросе xtool подпишет приложение вашим Apple ID и установит его на подключённый iPhone. Для бесплатного Apple ID срок сертификата остаётся 7 дней — это ограничение Apple, а не xtool. Повторный `xtool dev` продлевает подпись; платный Apple Developer Program даёт 365 дней.
 
+Готовый неподписанный IPA и источник SideStore:
+
+- [Release v0.1.0](https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/tag/v0.1.0)
+- `https://cdn.jsdelivr.net/gh/lionsgroup2013-cell/click-ai-fitness-coach@main/source/apps.json`
+
 ## Сборка через Xcode
 
 Требуются macOS, Xcode 16+ и XcodeGen.

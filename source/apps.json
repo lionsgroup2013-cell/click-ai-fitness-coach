@@ -1,0 +1,33 @@
+{
+  "name": "CLICK AI Coach",
+  "identifier": "com.lionsgroup.clickai.source",
+  "sourceURL": "https://cdn.jsdelivr.net/gh/lionsgroup2013-cell/click-ai-fitness-coach@main/source/apps.json",
+  "subtitle": "Персональный тренер, питание и прогресс",
+  "description": "Нативное SwiftUI-приложение CLICK со встроенными профилями, дневником питания, тренировками и графиком прогресса.",
+  "iconURL": "https://cdn.jsdelivr.net/gh/lionsgroup2013-cell/click-ai-fitness-coach@main/Support/AppIcon.png",
+  "tintColor": "#A8FF60",
+  "apps": [
+    {
+      "name": "CLICK AI Coach",
+      "bundleIdentifier": "com.lionsgroup.clickai",
+      "developerName": "lionsgroup2013-cell",
+      "subtitle": "Питание и тренировки в одном месте",
+      "localizedDescription": "Первая рабочая итерация CLICK AI Fitness Coach: пять основных разделов, два независимых профиля, локальный дневник питания, запись веса, список покупок, тренировка с таймером и график прогресса. Серверная часть и Aggregate подключаются следующими этапами.",
+      "iconURL": "https://cdn.jsdelivr.net/gh/lionsgroup2013-cell/click-ai-fitness-coach@main/Support/AppIcon.png",
+      "tintColor": "#A8FF60",
+      "category": "health",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "buildVersion": "1",
+          "date": "2026-11-17",
+          "localizedDescription": "Stage 1: интерфейс всех основных вкладок и локальные интерактивные сценарии.",
+          "downloadURL": "https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/download/v0.1.0/CLICK-unsigned.ipa",
+          "size": 1264184,
+          "minOSVersion": "17.0"
+        }
+      ]
+    }
+  ]
+}
+
