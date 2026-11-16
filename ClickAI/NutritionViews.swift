@@ -456,7 +456,7 @@ struct FoodScannerSheet: View {
                 .frame(maxHeight: .infinity)
 
                 PhotosPicker(selection: $selectedItem, matching: .images) {
-                    Label(hasPhoto ? "Выбрать другое фото" : "Выбрать фото этикетки", systemImage: "photo")
+                    Label("Выбрать фото этикетки", systemImage: "photo")
                 }
                 .buttonStyle(SecondaryButtonStyle())
                 .onChange(of: selectedItem) { _, newValue in
