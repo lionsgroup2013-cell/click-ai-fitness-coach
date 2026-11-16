@@ -25,6 +25,8 @@ let package = Package(
                 .copy("Assets/FoodSalmon.jpg"),
                 .copy("Assets/FoodSalad.jpg"),
                 .copy("Assets/TrainingCover.jpg"),
+                .copy("Assets/Manrope.ttf"),
+                .copy("Assets/Unbounded.ttf"),
             ]
         ),
     ]

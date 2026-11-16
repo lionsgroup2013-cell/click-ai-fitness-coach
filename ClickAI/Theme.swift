@@ -1,4 +1,30 @@
+import CoreText
 import SwiftUI
+
+enum CFFont {
+    static func display(_ size: CGFloat, weight: Font.Weight = .bold) -> Font {
+        .custom("Unbounded", size: size).weight(weight)
+    }
+
+    static func body(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .custom("Manrope", size: size).weight(weight)
+    }
+}
+
+enum CFFontRegistrar {
+    static func registerBundledFonts() {
+        #if XCODE_BUILD
+        let bundle = Bundle.main
+        #else
+        let bundle = Bundle.module
+        #endif
+
+        for name in ["Manrope", "Unbounded"] {
+            guard let url = bundle.url(forResource: name, withExtension: "ttf") else { continue }
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+    }
+}
 
 extension Image {
     static func cf(_ name: String) -> Image {
@@ -65,8 +91,8 @@ extension View {
 
     func cfDisplayTitle() -> some View {
         self
-            .font(.system(size: 34, weight: .black, design: .rounded))
-            .tracking(-1.1)
+            .font(CFFont.display(30, weight: .heavy))
+            .tracking(-1.5)
             .foregroundStyle(
                 LinearGradient(
                     colors: [CFColor.text, Color(hex: 0xEAFFDD), CFColor.accent],
@@ -78,8 +104,8 @@ extension View {
 
     func cfEyebrow() -> some View {
         self
-            .font(.system(size: 11, weight: .black, design: .rounded))
-            .tracking(1.4)
+            .font(CFFont.body(10, weight: .heavy))
+            .tracking(1.5)
             .foregroundStyle(CFColor.accent)
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
@@ -110,7 +136,7 @@ struct SectionHeader: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text(title)
-                .font(.system(size: 21, weight: .black, design: .rounded))
+                .font(CFFont.display(18, weight: .bold))
 
             Spacer()
 
@@ -135,7 +161,7 @@ struct CFPill: View {
                     .font(.system(size: 11, weight: .semibold))
             }
             Text(text)
-                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                .font(CFFont.body(10, weight: .bold))
         }
         .foregroundStyle(tint)
         .padding(.horizontal, 10)
@@ -155,8 +181,18 @@ struct IconTile: View {
             .font(.system(size: size * 0.4, weight: .semibold))
             .foregroundStyle(tint)
             .frame(width: size, height: size)
-            .background(tint.opacity(0.12))
+            .background(
+                LinearGradient(
+                    colors: [tint.opacity(0.2), tint.opacity(0.065)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
             .clipShape(RoundedRectangle(cornerRadius: size * 0.32, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: size * 0.32, style: .continuous)
+                    .stroke(tint.opacity(0.24), lineWidth: 1)
+            }
     }
 }
 
@@ -175,11 +211,11 @@ struct MacroBar: View {
         VStack(alignment: .leading, spacing: 7) {
             HStack {
                 Text(title)
-                    .font(.system(size: 13, weight: .medium))
+                    .font(CFFont.body(13, weight: .medium))
                     .foregroundStyle(CFColor.secondary)
                 Spacer()
                 Text("\(Int(value)) / \(Int(target)) г")
-                    .font(.system(size: 12, weight: .semibold, design: .rounded))
+                    .font(CFFont.body(11, weight: .bold))
                     .foregroundStyle(CFColor.text)
             }
 
@@ -216,10 +252,10 @@ struct CircleProgress: View {
 
             VStack(spacing: 1) {
                 Text(value)
-                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .font(CFFont.display(22, weight: .bold))
                     .monospacedDigit()
                 Text(caption)
-                    .font(.system(size: 11, weight: .medium))
+                    .font(CFFont.body(10, weight: .medium))
                     .foregroundStyle(CFColor.secondary)
             }
         }
@@ -229,7 +265,7 @@ struct CircleProgress: View {
 struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 15, weight: .bold, design: .rounded))
+            .font(CFFont.body(14, weight: .heavy))
             .foregroundStyle(CFColor.background)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
@@ -242,7 +278,7 @@ struct PrimaryButtonStyle: ButtonStyle {
 struct SecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 14, weight: .semibold, design: .rounded))
+            .font(CFFont.body(14, weight: .bold))
             .foregroundStyle(CFColor.text)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 13)

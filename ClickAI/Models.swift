@@ -186,6 +186,39 @@ struct ShoppingItem: Codable, Identifiable {
     var isChecked: Bool
 }
 
+struct CatalogProduct: Identifiable, Hashable {
+    let id: String
+    let store: String
+    let title: String
+    let brand: String
+    let package: String
+    let category: String
+    let icon: String
+    let price: Int
+    let calories: Int
+    let protein: Int
+    let fat: Int
+    let carbs: Int
+}
+
+enum StoreCatalog {
+    static let products: [CatalogProduct] = [
+        CatalogProduct(id: "pyat-chicken", store: "Пятёрочка", title: "Филе цыплёнка", brand: "Пятёрочка", package: "900 г", category: "Белок", icon: "takeoutbag.and.cup.and.straw.fill", price: 349, calories: 165, protein: 31, fat: 4, carbs: 0),
+        CatalogProduct(id: "pyat-salmon", store: "Пятёрочка", title: "Лосось охлаждённый", brand: "Северная рыба", package: "400 г", category: "Белок", icon: "fish.fill", price: 629, calories: 208, protein: 20, fat: 13, carbs: 0),
+        CatalogProduct(id: "pyat-eggs", store: "Пятёрочка", title: "Яйца куриные С1", brand: "Роскар", package: "10 шт.", category: "Белок", icon: "oval.fill", price: 139, calories: 157, protein: 13, fat: 11, carbs: 1),
+        CatalogProduct(id: "pyat-oats", store: "Пятёрочка", title: "Овсяные хлопья", brand: "Русский продукт", package: "500 г", category: "Гарниры", icon: "circle.grid.2x2.fill", price: 89, calories: 379, protein: 13, fat: 7, carbs: 62),
+        CatalogProduct(id: "pyat-yogurt", store: "Пятёрочка", title: "Йогурт греческий", brand: "Савушкин", package: "300 г", category: "Молочное", icon: "cup.and.saucer.fill", price: 119, calories: 86, protein: 9, fat: 3, carbs: 5),
+        CatalogProduct(id: "pyat-broccoli", store: "Пятёрочка", title: "Брокколи", brand: "Global Village", package: "400 г", category: "Овощи", icon: "leaf.fill", price: 159, calories: 34, protein: 2, fat: 0, carbs: 7),
+
+        CatalogProduct(id: "dixy-rice", store: "Дикси", title: "Рис басмати", brand: "Мистраль", package: "800 г", category: "Гарниры", icon: "circle.grid.3x3.fill", price: 199, calories: 350, protein: 8, fat: 1, carbs: 77),
+        CatalogProduct(id: "dixy-buckwheat", store: "Дикси", title: "Гречка ядрица", brand: "Дикси", package: "900 г", category: "Гарниры", icon: "circle.grid.cross.fill", price: 129, calories: 335, protein: 12, fat: 3, carbs: 62),
+        CatalogProduct(id: "dixy-cottage", store: "Дикси", title: "Творог 5%", brand: "Простоквашино", package: "300 г", category: "Молочное", icon: "square.stack.3d.up.fill", price: 149, calories: 121, protein: 18, fat: 5, carbs: 3),
+        CatalogProduct(id: "dixy-bananas", store: "Дикси", title: "Бананы", brand: "Фрукты", package: "1 кг", category: "Фрукты", icon: "leaf.circle.fill", price: 109, calories: 96, protein: 1, fat: 0, carbs: 23),
+        CatalogProduct(id: "dixy-mix", store: "Дикси", title: "Овощная смесь", brand: "4 сезона", package: "900 г", category: "Овощи", icon: "carrot.fill", price: 249, calories: 42, protein: 2, fat: 1, carbs: 7),
+        CatalogProduct(id: "dixy-oil", store: "Дикси", title: "Оливковое масло", brand: "Borges", package: "500 мл", category: "Масла", icon: "drop.fill", price: 599, calories: 884, protein: 0, fat: 100, carbs: 0)
+    ]
+}
+
 struct Recipe: Codable, Identifiable {
     let id: UUID
     var title: String
@@ -316,9 +349,9 @@ enum DemoData {
             weights: weights,
             meals: Meal.standardPlan(profileID: id),
             shopping: [
-                ShoppingItem(id: UUID(), title: "Куриное филе", quantity: "1,2 кг", store: "Пятёрочка", estimatedPrice: 489, isChecked: false),
-                ShoppingItem(id: UUID(), title: "Бурый рис", quantity: "800 г", store: "Дикси", estimatedPrice: 179, isChecked: true),
-                ShoppingItem(id: UUID(), title: "Лосось", quantity: "500 г", store: "Пятёрочка", estimatedPrice: 699, isChecked: false),
+                ShoppingItem(id: UUID(), title: "Филе цыплёнка", quantity: "900 г", store: "Пятёрочка", estimatedPrice: 349, isChecked: false),
+                ShoppingItem(id: UUID(), title: "Рис басмати", quantity: "800 г", store: "Дикси", estimatedPrice: 199, isChecked: true),
+                ShoppingItem(id: UUID(), title: "Лосось охлаждённый", quantity: "400 г", store: "Пятёрочка", estimatedPrice: 629, isChecked: false),
                 ShoppingItem(id: UUID(), title: "Овощная смесь", quantity: "900 г", store: "Дикси", estimatedPrice: 249, isChecked: false)
             ],
             recipes: [
@@ -458,6 +491,28 @@ final class AppStore {
         var updated = current
         updated.shopping[index].isChecked.toggle()
         current = updated
+    }
+
+    func addCatalogProduct(_ product: CatalogProduct) {
+        guard !isProductInShoppingList(product) else { return }
+        var updated = current
+        updated.shopping.append(
+            ShoppingItem(
+                id: UUID(),
+                title: product.title,
+                quantity: product.package,
+                store: product.store,
+                estimatedPrice: product.price,
+                isChecked: false
+            )
+        )
+        current = updated
+    }
+
+    func isProductInShoppingList(_ product: CatalogProduct) -> Bool {
+        current.shopping.contains {
+            $0.title == product.title && $0.store == product.store
+        }
     }
 
     func completeWorkout() {

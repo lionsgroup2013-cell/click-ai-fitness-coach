@@ -5,9 +5,9 @@
     <key>CFBundleDisplayName</key>
     <string>CLICK AI Coach</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.2.0</string>
+    <string>0.3.0</string>
     <key>CFBundleVersion</key>
-    <string>2</string>
+    <string>3</string>
     <key>NSCameraUsageDescription</key>
     <string>Камера нужна для распознавания продуктов, этикеток и блюд.</string>
     <key>NSPhotoLibraryUsageDescription</key>
@@ -16,6 +16,11 @@
     <string>Apple Health нужен для импорта веса, шагов и тренировок с вашего разрешения.</string>
     <key>NSHealthUpdateUsageDescription</key>
     <string>CLICK может сохранять тренировки и показатели в Apple Health с вашего разрешения.</string>
+    <key>UIAppFonts</key>
+    <array>
+        <string>Manrope.ttf</string>
+        <string>Unbounded.ttf</string>
+    </array>
     <key>UILaunchScreen</key>
     <dict>
         <key>UIColorName</key>
