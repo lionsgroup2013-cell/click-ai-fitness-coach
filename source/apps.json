@@ -12,18 +12,18 @@
       "bundleIdentifier": "com.lionsgroup.clickai",
       "developerName": "lionsgroup2013-cell",
       "subtitle": "Питание и тренировки в одном месте",
-      "localizedDescription": "Первая рабочая итерация CLICK AI Fitness Coach: пять основных разделов, два независимых профиля, локальный дневник питания, запись веса, список покупок, тренировка с таймером и график прогресса. Серверная часть и Aggregate подключаются следующими этапами.",
+      "localizedDescription": "CLICK AI Fitness Coach: домашние и уличные тренировки, профиль Гулама, дневник питания, продукты с БЖУ, списки Пятёрочки и Дикси, запись веса и график прогресса. Серверная часть и Aggregate подключаются следующими этапами.",
       "iconURL": "https://cdn.jsdelivr.net/gh/lionsgroup2013-cell/click-ai-fitness-coach@main/Support/AppIcon.png",
       "tintColor": "#A8FF60",
       "category": "health",
       "versions": [
         {
-          "version": "0.1.1",
-          "buildVersion": "2",
+          "version": "0.2.0",
+          "buildVersion": "3",
           "date": "2026-11-17",
-          "localizedDescription": "Stage 1: выразительная типографика, читаемый вторичный текст и профиль Гулама.",
-          "downloadURL": "https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/download/v0.1.1/CLICK-unsigned.ipa",
-          "size": 1268011,
+          "localizedDescription": "Домашние тренировки, улица с турником, магазины Пятёрочка и Дикси, продукты с БЖУ и более контрастный интерфейс.",
+          "downloadURL": "https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/download/v0.2.0/CLICK-unsigned.ipa",
+          "size": 1286090,
           "minOSVersion": "17.0"
         }
       ]

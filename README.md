@@ -70,7 +70,7 @@ xtool dev
 
 Готовый неподписанный IPA и источник SideStore:
 
-- [Release v0.1.1](https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/tag/v0.1.1)
+- [Release v0.2.0](https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/tag/v0.2.0)
 - `https://cdn.jsdelivr.net/gh/lionsgroup2013-cell/click-ai-fitness-coach@main/source/apps.json`
 
 ## Сборка через Xcode
