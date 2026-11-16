@@ -18,12 +18,12 @@
       "category": "health",
       "versions": [
         {
-          "version": "0.1.0",
-          "buildVersion": "1",
+          "version": "0.1.1",
+          "buildVersion": "2",
           "date": "2026-11-17",
-          "localizedDescription": "Stage 1: интерфейс всех основных вкладок и локальные интерактивные сценарии.",
-          "downloadURL": "https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/download/v0.1.0/CLICK-unsigned.ipa",
-          "size": 1264184,
+          "localizedDescription": "Stage 1: выразительная типографика, читаемый вторичный текст и профиль Гулама.",
+          "downloadURL": "https://github.com/lionsgroup2013-cell/click-ai-fitness-coach/releases/download/v0.1.1/CLICK-unsigned.ipa",
+          "size": 1268011,
           "minOSVersion": "17.0"
         }
       ]
